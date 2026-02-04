@@ -159,7 +159,12 @@ export const SignaturePad = ({
       .exhaustive();
   };
 
-  if (!drawSignatureEnabled && !typedSignatureEnabled && !uploadSignatureEnabled && !qrSignatureEnabled) {
+  if (
+    !drawSignatureEnabled &&
+    !typedSignatureEnabled &&
+    !uploadSignatureEnabled &&
+    !qrSignatureEnabled
+  ) {
     return null;
   }
 
@@ -238,12 +243,12 @@ export const SignaturePad = ({
         <SignaturePadUpload value={imageSignature} onChange={onImageSignatureChange} />
       </TabsContent>
 
-      {shouldShowQrTab && (
+      {shouldShowQrTab && qrToken && (
         <TabsContent
           value="qr"
           className="relative flex aspect-signature-pad items-center justify-center rounded-md border border-border bg-neutral-50 text-center dark:bg-background"
         >
-          <SignaturePadQr qrToken={qrToken!} onChange={onQrSignatureChange} />
+          <SignaturePadQr qrToken={qrToken} onChange={onQrSignatureChange} />
         </TabsContent>
       )}
     </Tabs>
