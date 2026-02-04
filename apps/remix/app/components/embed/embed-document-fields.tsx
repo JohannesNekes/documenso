@@ -40,6 +40,7 @@ export type EmbedDocumentFieldsProps = {
     | 'uploadSignatureEnabled'
     | 'drawSignatureEnabled'
   > | null;
+  qrToken?: string;
   onSignField?: (value: TSignFieldWithTokenMutationSchema) => Promise<void> | void;
   onUnsignField?: (value: TRemovedSignedFieldWithTokenMutationSchema) => Promise<void> | void;
 };
@@ -47,6 +48,7 @@ export type EmbedDocumentFieldsProps = {
 export const EmbedDocumentFields = ({
   fields,
   metadata,
+  qrToken,
   onSignField,
   onUnsignField,
 }: EmbedDocumentFieldsProps) => {
@@ -65,6 +67,7 @@ export const EmbedDocumentFields = ({
               typedSignatureEnabled={metadata?.typedSignatureEnabled}
               uploadSignatureEnabled={metadata?.uploadSignatureEnabled}
               drawSignatureEnabled={metadata?.drawSignatureEnabled}
+              qrToken={qrToken}
             />
           ))
           .with(FieldType.INITIALS, () => (
