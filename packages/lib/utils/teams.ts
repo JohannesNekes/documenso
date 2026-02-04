@@ -24,6 +24,7 @@ export enum DocumentSignatureType {
   DRAW = 'draw',
   TYPE = 'type',
   UPLOAD = 'upload',
+  QR = 'qr',
 }
 
 export const formatTeamUrl = (teamUrl: string, baseUrl?: string) => {
